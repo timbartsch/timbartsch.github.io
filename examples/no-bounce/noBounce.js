@@ -2,7 +2,6 @@ var noBounce = function(){
 	var module = {};
 
   var settings = {
-    preventDefault: true,
     animate: true
   };
 
@@ -46,9 +45,6 @@ var noBounce = function(){
     })();
 
 	function handleTouchStart (evt){
-    if(settings.preventDefault){
-      evt.preventDefault();
-    }
 		var point,
 			touch;
 
@@ -64,6 +60,8 @@ var noBounce = function(){
 	function handleTouchMove (evt){	
 		var point,
 			touch;
+
+    evt.preventDefault();
 
 		touch = evt.changedTouches[0];
 		point = {
@@ -110,7 +108,9 @@ var noBounce = function(){
       p2 = track[track.length -2];
       x = p2.x - p1.x;
       y = p2.y - p1.y;
-      window.scrollBy(x, y);
+      requestAnimFrame(function(){
+        window.scrollBy(x, y);
+      });
     }
   }
 
@@ -123,9 +123,6 @@ var noBounce = function(){
   }
 
   module.init = function(options){
-    if(typeof options.preventDefault === "boolean"){
-      settings.preventDefault = options.preventDefault;
-    }
     if(typeof options.animate === "boolean"){
       settings.animate = options.animate;
     }
