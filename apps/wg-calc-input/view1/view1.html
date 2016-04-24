@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="btn-group btn-group-justified" role="group">
+    <a class="btn btn-default" ng-click="view1.addItem('BDJT')">BDJT</a>
+  </div>
+  <div class="btn-group btn-group-justified" role="group">
+    <a class="btn btn-default" ng-click="view1.addItem('BDJ')">BDJ</a>
+    <a class="btn btn-default" ng-click="view1.addItem('BDT')">BDT</a>
+    <a class="btn btn-default" ng-click="view1.addItem('BJT')">BJT</a>
+    <a class="btn btn-default" ng-click="view1.addItem('DJT')">DJT</a>
+  </div>
+  <div class="btn-group btn-group-justified" role="group">
+    <a class="btn btn-default" ng-click="view1.addItem('BD')">BD</a>
+    <a class="btn btn-default" ng-click="view1.addItem('BJ')">BJ</a>
+    <a class="btn btn-default" ng-click="view1.addItem('BT')">BT</a>
+    <a class="btn btn-default" ng-click="view1.addItem('DJ')">DJ</a>
+    <a class="btn btn-default" ng-click="view1.addItem('DT')">DT</a>
+    <a class="btn btn-default" ng-click="view1.addItem('JT')">JT</a>
+  </div>
+  <div class="btn-group btn-group-justified" role="group">
+    <a class="btn btn-default" ng-click="view1.addItem('B')">B</a>
+    <a class="btn btn-default" ng-click="view1.addItem('D')">D</a>
+    <a class="btn btn-default" ng-click="view1.addItem('J')">J</a>
+    <a class="btn btn-default" ng-click="view1.addItem('T')">T</a>
+  </div>
+  <div class="input-group">
+    <input id="money-input" type="number" class="form-control" ng-model="view1.moneyInput" autofocus>
+    <span class="input-group-addon">€</span>
+  </div>
+  <table class="table">
+    <tr>
+      <th></th>
+      <th>Amount €</th>
+      <th>Person</th>
+    </tr>
+    <tr ng-repeat="item in view1.items track by $index">
+      <td><button class="btn btn-default" ng-click="view1.removeItem($index)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></button></td>
+      <td>{{item.money}}</td>
+      <td>{{item.user}}</td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="col-xs-6">
+      <button type="button" class="btn btn-danger" ng-click="view1.resetItems()">reset all
+        <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+      </button>
+    </div>
+    <div class="col-xs-6">
+      <a class="btn btn-primary" href="mailto:timsmuell@gmail.com?subject=Abrechnung &body={{view1.emailBody}}">send <span class="glyphicon glyphicon-send" aria-hidden="true"></span></a>
+    </div>
+  </div>
+</div>
