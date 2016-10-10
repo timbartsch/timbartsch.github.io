@@ -19,6 +19,19 @@ angular.module('myApp.view1', ['ngRoute'])
     view1.items = [];
   }
 
+  if(localStorage.sendAs) {
+    view1.sendAs = localStorage.sendAs;
+  } else {
+    view1.sendAs = "Bartsch";
+  }
+
+  if(localStorage.sendTo) {
+    view1.sendTo = localStorage.sendTo;
+  } else {
+    view1.sendTo = "timsmuell@gmail.com";
+  }
+
+
   view1.emailBody = itemsToEmailBody(view1.items);
   view1.moneyInput = "";
 
@@ -59,7 +72,25 @@ angular.module('myApp.view1', ['ngRoute'])
     afterItemsChange();
   };
 
+  view1.moneySum = function(items){
+    var i, sum;
+    sum = 0;
+    for(i=0; i < items.length; i++) {
+      sum += items[i].money;
+    }
+    return sum;
+  };
 
+  view1.writeSendAsToLocalstorage = function(){
+    localStorage.sendAs = view1.sendAs;
+  };
+
+  view1.writeSendToToLocalstorage = function(){
+    localStorage.sendTo = view1.sendTo;
+  };
+
+// make email editable
+// add sender name
 
 
 }]);

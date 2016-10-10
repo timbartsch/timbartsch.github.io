@@ -5,3 +5,15 @@
 .input-group {
   margin-top: 10px;
 }
+
+
+.sum-container {
+  margin: 20px 0 20px 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+
+.settings {
+  margin-top: 50px;
+}
